@@ -1,7 +1,5 @@
-/* (c)  SBN Data Technologies GmbH. All rights reserved */
 
-import { CSSProperties, ReactNode, useEffect, useLayoutEffect, useRef } from "react"
-import { randomId } from "./util"
+import { CSSProperties, ReactNode } from "react"
 
 export type Point = {
     x: number
@@ -16,7 +14,6 @@ export type Size = {
 export type AnimatedDivProps = {
     position?: Point
     size?: Size
-    fromPosition?: Point
     opacity?: number
     durationMs?: number
     delayMs?: number
@@ -29,7 +26,6 @@ export function AnimatedDiv(props: AnimatedDivProps) {
     const { 
         position, 
         size,
-        fromPosition,
         opacity,
         durationMs = 250,
         delayMs = 0,
@@ -38,14 +34,6 @@ export function AnimatedDiv(props: AnimatedDivProps) {
         children 
     } = props
 
-    const id = "id" + randomId()
-    useLayoutEffect(() => {
-        const element = document.querySelector("#" + id) as HTMLDivElement
-        if (element && fromPosition) {
-            element.style.left = fromPosition.x + "px"
-            element.style.top = fromPosition.y + "px"
-        }        
-    })
 
     const styles: CSSProperties = {
         transitionProperty: transitionProperty,
@@ -60,6 +48,6 @@ export function AnimatedDiv(props: AnimatedDivProps) {
         height: size ? size.height + "px" : "auto",
     }
     return (
-        <div id={id} style={styles}>{children}</div>
+        <div style={styles}>{children}</div>
     )
 }

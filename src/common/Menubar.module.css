@@ -1,0 +1,22 @@
+.menubar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #bbbbbb;
+    align-self: stretch;
+    justify-content: center;
+}
+
+.menulink {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    color: #444444;
+}
+
+.menulink:hover {
+    border-bottom: 2px solid orange;
+}

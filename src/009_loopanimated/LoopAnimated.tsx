@@ -17,9 +17,10 @@ const quotes = (quotesData as QuotesData).quotes
 
 
 import { useEffect, useState } from "react"
+import { AnimatedDiv } from "../common/AnimatedDiv"
 
 
-export function Loop() {
+export function LoopAnimated() {
 
     const months = [
         "Jan", "Februar", "März", "April", "Mai", "Juni", "July", "August", "September", "Oktober", "November", "Dezember"
@@ -45,7 +46,9 @@ export function Loop() {
     return (
         <ul style={{ position: "relative" }}>
             {months.map((month,index) => (
-                <li key={index} >Monat {index + 1}: {month}</li>
+                <AnimatedDiv  key={index} relative delayMs={100 + index * 200} position={{x: fadeIn ? 0 : -2000, y: 0}}>
+                    <li key={index} >Monat {index + 1}: {month}</li>
+                </AnimatedDiv>
             ))}
         </ul>
     )

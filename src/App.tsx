@@ -1,8 +1,14 @@
 import { Router } from "./Router"
+import { Menubar } from "./common/Menubar"
 
 function App() {
     return (
-        <Router></Router>
+        <>
+            <div className="column-container grow">
+                <Router></Router>
+            </div>
+            <Menubar></Menubar>
+        </>
     );
 }
 
