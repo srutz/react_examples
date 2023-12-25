@@ -12,6 +12,7 @@ import { Expandable } from './030_expandable/Expandable'
 import { makeLongText } from './common/util'
 import { CustomExpandable } from './031_customexpandable/CustomExpandable'
 import { NativeEvents } from './035_nativeevents/NativeEvents'
+import { ContextManipulation } from './040_contextmanipulation/ContextManipulation'
 
 
 export const allroutes: RouteObject[] = [
@@ -62,6 +63,10 @@ export const allroutes: RouteObject[] = [
     {
         path: '/nativeevents',
         element: <NativeEvents/>
+    },
+    {
+        path: '/contextmanipulation',
+        element: <ContextManipulation/>
     },
 ]
 

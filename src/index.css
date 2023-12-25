@@ -60,6 +60,7 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+  min-width: 96px;
 }
 button:hover {
   border-color: #646cff;
