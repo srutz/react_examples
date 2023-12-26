@@ -1,12 +1,13 @@
+import { NavLink } from "react-router-dom"
 import { allroutes } from "../Router"
 import classes from "./Menubar.module.css"
 
 export function Menubar() {
-    const routes = allroutes
+    const routes = allroutes[0].children || []
     return (
         <div className={classes.menubar}>
             {routes.filter(route => route.path != "/").map(route => (
-                <a key={route.path} className={classes.menulink} href={route.path||"/"}>{route.path?.replace(/^./,"")}</a>
+                <NavLink key={route.path} className={classes.menulink} to={route.path||"/"}>{route.path?.replace(/^./,"")}</NavLink>
             ))}
         </div>
     )

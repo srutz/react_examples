@@ -1,18 +1,15 @@
+import { Outlet } from "react-router-dom"
 import { ContextInfo } from "./040_contextmanipulation/ContextInfo"
 import { Router } from "./Router"
 import { Menubar } from "./common/Menubar"
 import { ApplicationContextProvider } from "./context/ApplicationContextProvider"
 
-function App() {
+export function App() {
     return (
         <ApplicationContextProvider>
-            <div className="column-container grow">
-                <Router></Router>
-            </div>
-            <Menubar></Menubar>
+            <Router></Router>
             <ContextInfo></ContextInfo>
         </ApplicationContextProvider>
     )
 }
 
-export default App;

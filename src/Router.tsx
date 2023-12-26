@@ -1,5 +1,5 @@
 
-import { createBrowserRouter, RouteObject, RouterProvider, } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouteObject, RouterProvider, } from 'react-router-dom';
 import { Button } from './001_button/Button'
 import { Banner } from './004_banner/Banner'
 import { StyledBanner } from './005_styles/StyledBanner'
@@ -13,60 +13,85 @@ import { makeLongText } from './common/util'
 import { CustomExpandable } from './031_customexpandable/CustomExpandable'
 import { NativeEvents } from './035_nativeevents/NativeEvents'
 import { ContextManipulation } from './040_contextmanipulation/ContextManipulation'
+import { ModalTest } from './045_modal/ModalTest'
+import { SimpleForm } from './050_simpleform/SimpleForm'
+import { Menubar } from './common/Menubar'
+
+function Content() {
+    return (
+        <>
+        <div className="column-container grow">
+            <Outlet></Outlet>
+        </div>
+        <Menubar></Menubar>
+        </>
+    )
+}
+
 
 
 export const allroutes: RouteObject[] = [
     {
         path: '/',
-        element: <h1>Welcome</h1>,
-    },
-    {
-        path: '/button',
-        element: <Button></Button>,
-    },
-    {
-        path: '/banner',
-        element: <Banner text='Hello World' visible></Banner>,
-    },
-    {
-        path: '/styles',
-        element: <StyledBanner text='Hello World' size={64} ></StyledBanner>,
-    },
-    {
-        path: '/loop',
-        element: <Loop></Loop>
-    },
-    {
-        path: '/loopanimated',
-        element: <LoopAnimated></LoopAnimated>
-    },
-    {
-        path: '/counter',
-        element: <Counter></Counter>
-    },
-    {
-        path: '/changedom',
-        element: <ChangeDom></ChangeDom>
-    },
-    {
-        path: '/windowlistener',
-        element: <WindowListener></WindowListener>
-    },
-    {
-        path: '/expandable',
-        element: <Expandable title="Hello zusammen" body={makeLongText(10)}></Expandable>
-    },
-    {
-        path: '/customexpandable',
-        element: <CustomExpandable title="Hello zusammen"><h1>Hello There</h1><p>I am custom content</p></CustomExpandable>
-    },
-    {
-        path: '/nativeevents',
-        element: <NativeEvents/>
-    },
-    {
-        path: '/contextmanipulation',
-        element: <ContextManipulation/>
+        element: <Content></Content>,
+        children: [
+            {
+                path: '/button',
+                element: <Button></Button>,
+            },
+            {
+                path: '/banner',
+                element: <Banner text='Hello World' visible></Banner>,
+            },
+            {
+                path: '/styles',
+                element: <StyledBanner text='Hello World' size={64} ></StyledBanner>,
+            },
+            {
+                path: '/loop',
+                element: <Loop></Loop>
+            },
+            {
+                path: '/loopanimated',
+                element: <LoopAnimated></LoopAnimated>
+            },
+            {
+                path: '/counter',
+                element: <Counter></Counter>
+            },
+            {
+                path: '/changedom',
+                element: <ChangeDom></ChangeDom>
+            },
+            {
+                path: '/windowlistener',
+                element: <WindowListener></WindowListener>
+            },
+            {
+                path: '/expandable',
+                element: <Expandable title="Hello zusammen" body={makeLongText(10)}></Expandable>
+            },
+            {
+                path: '/customexpandable',
+                element: <CustomExpandable title="Hello zusammen"><h1>Hello There</h1><p>I am custom content</p></CustomExpandable>
+            },
+            {
+                path: '/nativeevents',
+                element: <NativeEvents/>
+            },
+            {
+                path: '/contextmanipulation',
+                element: <ContextManipulation/>
+            },
+            {
+                path: '/modal',
+                element: <ModalTest/>
+            },
+            {
+                path: '/simpleform',
+                element: <SimpleForm/>
+            },
+        ]
     },
 ]
 
