@@ -7,7 +7,8 @@ export function Menubar() {
     return (
         <div className={classes.menubar}>
             {routes.filter(route => route.path != "/").map(route => (
-                <NavLink key={route.path} className={classes.menulink} to={route.path||"/"}>{route.path?.replace(/^./,"")}</NavLink>
+                <NavLink key={route.path} className={classes.menulink} 
+                    to={route.path||"/"}>{route.path?.replace(/^./,"")}</NavLink>
             ))}
         </div>
     )
