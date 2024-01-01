@@ -16,6 +16,7 @@ import { ContextManipulation } from './040_contextmanipulation/ContextManipulati
 import { ModalTest } from './045_modal/ModalTest'
 import { SimpleForm } from './050_simpleform/SimpleForm'
 import { Menubar } from './common/Menubar'
+import { FetchData } from './060_fetchdata/FetchData'
 
 function Content() {
     return (
@@ -35,6 +36,10 @@ export const allroutes: RouteObject[] = [
         path: '/',
         element: <Content></Content>,
         children: [
+            {
+                path: '/',
+                element: <h1>React Übungen</h1>
+            },
             {
                 path: '/button',
                 element: <Button></Button>,
@@ -90,6 +95,10 @@ export const allroutes: RouteObject[] = [
             {
                 path: '/simpleform',
                 element: <SimpleForm/>
+            },
+            {
+                path: '/fetchdata',
+                element: <FetchData/>
             },
         ]
     },
