@@ -59,3 +59,19 @@
     overflow-y: auto;
     justify-content: center;
 }
+
+.reload {
+    padding: 1rem;
+    position: absolute;
+    top: 16px;
+    right: 0px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    transition: all 250ms;
+}
+
+.reload:hover {
+    color: grey;
+}

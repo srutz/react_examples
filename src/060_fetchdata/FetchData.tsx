@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useTransition } from "react"
 import classes from "./FetchData.module.css"
 
 export type Product = {
@@ -49,25 +49,48 @@ async function delay(delayMs: number) {
 
 export function FetchData() {
 
-    const[products,setProducts] = useState<Product[]>([]);
+    const [products,setProducts] = useState<Product[]>([]);
+    const [loading,setLoading] = useState(false)
+    const [isPending, startTransition] = useTransition();
 
-    useEffect(() => {
+
+    const fetchData = () => {
+        startTransition(fetchData1)
+    }
+    const fetchData1 = () => {
         (async () => {
+            setLoading(true)
+            await delay(2000)
             const response = await fetch("https://dummyjson.com/products")
             const productsData = await response.json() as ProductsData
             setProducts(productsData.products)
+            setLoading(false)
         })();
+    }
+
+    useEffect(() => {
+        fetchData()
     }, []);
+
+    const onReload = () => {
+        fetchData()
+    }
 
     return (
         <div className={classes.panel}>
             <div className={classes.heading}>Produkte</div>
-            <div className={classes.contentarea}>
-                {products.map(product => (
-                    <ProductCard key={product.id} product={product}>
-                    </ProductCard>
-                ))}
-            </div>
+            {loading ? (<h1>... loading</h1>)
+                : (
+                    <div className={classes.contentarea}>
+                        {products.map(product => (
+                            <ProductCard key={product.id} product={product}>
+                            </ProductCard>
+                        ))}
+                    </div>
+                )
+            }
+                    
+            <div className={classes.reload} onClick={onReload}>↻</div>
         </div>
     )
 }
