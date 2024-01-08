@@ -89,7 +89,6 @@ export function FetchData() {
                     </div>
                 )
             }
-                    
             <div className={classes.reload} onClick={onReload}>↻</div>
         </div>
     )

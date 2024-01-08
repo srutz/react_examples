@@ -17,6 +17,7 @@ import { ModalTest } from './045_modal/ModalTest'
 import { SimpleForm } from './050_simpleform/SimpleForm'
 import { Menubar } from './common/Menubar'
 import { FetchData } from './060_fetchdata/FetchData'
+import { FetchDataSuspense } from './061_fetchdata_suspense/FetchDataSuspense'
 
 function Content() {
     return (
@@ -28,7 +29,6 @@ function Content() {
         </>
     )
 }
-
 
 
 export const allroutes: RouteObject[] = [
@@ -99,6 +99,10 @@ export const allroutes: RouteObject[] = [
             {
                 path: '/fetchdata',
                 element: <FetchData/>
+            },
+            {
+                path: '/fetchdatasuspense',
+                element: <FetchDataSuspense/>
             },
         ]
     },
