@@ -75,3 +75,10 @@ li {
     align-self: flex-start;
 }
 
+.red {
+    background-color: lightcoral;
+}
+
+.reallyround {
+    border-radius: 16px;
+}

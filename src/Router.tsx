@@ -18,6 +18,7 @@ import { SimpleForm } from './050_simpleform/SimpleForm'
 import { Menubar } from './common/Menubar'
 import { FetchData } from './060_fetchdata/FetchData'
 import { FetchDataSuspense } from './061_fetchdata_suspense/FetchDataSuspense'
+import { StyledExpandable } from './032_styledexpandable/StylesExpandable'
 
 function Content() {
     return (
@@ -79,6 +80,12 @@ export const allroutes: RouteObject[] = [
             {
                 path: '/customexpandable',
                 element: <CustomExpandable title="Hello zusammen"><h1>Hello There</h1><p>I am custom content</p></CustomExpandable>
+            },
+            {
+                path: '/styledexpandable',
+                element: <StyledExpandable title="Hello zusammen" className="red reallyround">
+                    <h1>Hello There</h1><p>I am styled content</p>
+                </StyledExpandable>
             },
             {
                 path: '/nativeevents',
