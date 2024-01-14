@@ -19,6 +19,7 @@ import { Menubar } from './common/Menubar'
 import { FetchData } from './060_fetchdata/FetchData'
 import { FetchDataSuspense } from './061_fetchdata_suspense/FetchDataSuspense'
 import { StyledExpandable } from './032_styledexpandable/StylesExpandable'
+import { Refs } from './003_refs/Refs'
 
 function Content() {
     return (
@@ -44,6 +45,10 @@ export const allroutes: RouteObject[] = [
             {
                 path: '/button',
                 element: <Button></Button>,
+            },
+            {
+                path: '/refs',
+                element: <Refs></Refs>,
             },
             {
                 path: '/banner',
