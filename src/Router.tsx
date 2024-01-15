@@ -20,6 +20,7 @@ import { FetchData } from './060_fetchdata/FetchData'
 import { FetchDataSuspense } from './061_fetchdata_suspense/FetchDataSuspense'
 import { StyledExpandable } from './032_styledexpandable/StylesExpandable'
 import { Refs } from './003_refs/Refs'
+import { Jsx } from './002_jsx/Jsx'
 
 function Content() {
     return (
@@ -45,6 +46,10 @@ export const allroutes: RouteObject[] = [
             {
                 path: '/button',
                 element: <Button></Button>,
+            },
+            {
+                path: '/jsx',
+                element: <Jsx></Jsx>,
             },
             {
                 path: '/refs',
