@@ -53,7 +53,6 @@ export function FetchData() {
     const [loading,setLoading] = useState(false)
     const [isPending, startTransition] = useTransition();
 
-
     const fetchData = () => {
         startTransition(fetchData1)
     }
