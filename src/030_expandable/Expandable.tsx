@@ -1,6 +1,17 @@
 import { useEffect, useState } from "react"
 import classes from "./Expandable.module.css"
 
+function eliminateDoubles(a: string[]) {
+    const result: string[] = []
+    for (const s of a) {
+        if (!result.includes(s)) {
+            result.push(s)
+        }
+    }
+    return result
+}
+    
+
 
 export type ExpandableProps = {
     title: string
